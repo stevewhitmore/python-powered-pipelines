@@ -9,6 +9,20 @@
     "noImplicitOverride": true,
     "noPropertyAccessFromIndexSignature": true,
     "noImplicitReturns": true,
+    "paths": {
+      "library-a": [
+        "dist/library-a"
+      ],
+      "library-b": [
+        "dist/library-b"
+      ],
+      "library-c": [
+        "dist/library-c"
+      ],
+      "library-d": [
+        "dist/library-d"
+      ]
+    },
     "noFallthroughCasesInSwitch": true,
     "sourceMap": true,
     "declaration": false,

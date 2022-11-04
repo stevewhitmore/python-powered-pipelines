@@ -25,7 +25,7 @@ module.exports = function (config) {
       suppressAll: true // removes the duplicated traces
     },
     coverageReporter: {
-      dir: require('path').join(__dirname, './coverage/python-powered-pipelines'),
+      dir: require('path').join(__dirname, '../../coverage/library-c'),
       subdir: '.',
       reporters: [
         { type: 'html' },
@@ -37,19 +37,8 @@ module.exports = function (config) {
     colors: true,
     logLevel: config.LOG_INFO,
     autoWatch: true,
+    browsers: ['Chrome'],
     singleRun: false,
-    restartOnFileChange: true,
-    customLaunchers: {
-      Chromium_Headless: {
-        base: 'ChromiumHeadless',
-        flags: [
-          '--no-sandbox',
-          '--headless',
-          '--disable-gpu',
-          '--disable-translate',
-          '--disable-extensions'
-        ]
-      }
-    }
+    restartOnFileChange: true
   });
 };
