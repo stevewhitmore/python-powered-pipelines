@@ -1,6 +1,6 @@
 {
-  "name": "library-b",
-  "version": "0.0.1",
+  "name": "@stevewhitmore/library-b",
+  "version": "0.0.1-SNAPSHOT-20221107-170843",
   "peerDependencies": {
     "@angular/common": "^14.2.0",
     "@angular/core": "^14.2.0"
