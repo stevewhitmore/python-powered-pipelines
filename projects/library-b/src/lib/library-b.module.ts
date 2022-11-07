@@ -5,12 +5,12 @@ import { LibraryBComponent } from './library-b.component';
 
 @NgModule({
   declarations: [
-    LibraryBComponent
+    LibraryBComponent,
   ],
   imports: [
   ],
   exports: [
-    LibraryBComponent
-  ]
+    LibraryBComponent,
+  ],
 })
 export class LibraryBModule { }

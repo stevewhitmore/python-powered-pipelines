@@ -131,6 +131,15 @@
             "tsConfig": "projects/library-a/tsconfig.spec.json",
             "karmaConfig": "./karma.conf.js"
           }
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns": [
+              "projects/library-a/**/*.ts",
+              "projects/library-a/**/*.html"
+            ]
+          }
         }
       }
     },
@@ -161,6 +170,15 @@
             "main": "projects/library-b/src/test.ts",
             "tsConfig": "projects/library-b/tsconfig.spec.json",
             "karmaConfig": "./karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns": [
+              "projects/library-b/**/*.ts",
+              "projects/library-b/**/*.html"
+            ]
           }
         }
       }
@@ -193,6 +211,15 @@
             "tsConfig": "projects/library-c/tsconfig.spec.json",
             "karmaConfig": "./karma.conf.js"
           }
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns": [
+              "projects/library-c/**/*.ts",
+              "projects/library-c/**/*.html"
+            ]
+          }
         }
       }
     },
@@ -223,6 +250,15 @@
             "main": "projects/library-d/src/test.ts",
             "tsConfig": "projects/library-d/tsconfig.spec.json",
             "karmaConfig": "./karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns": [
+              "projects/library-d/**/*.ts",
+              "projects/library-d/**/*.html"
+            ]
           }
         }
       }

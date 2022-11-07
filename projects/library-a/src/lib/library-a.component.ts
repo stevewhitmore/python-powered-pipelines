@@ -8,11 +8,9 @@ import { Component, OnInit } from '@angular/core';
     </p>
   `,
   styles: [
-  ]
+  ],
 })
 export class LibraryAComponent implements OnInit {
-
-  constructor() { }
 
   ngOnInit(): void {
   }

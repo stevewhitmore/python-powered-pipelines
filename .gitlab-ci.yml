@@ -27,8 +27,6 @@ eslint:
   stage: test
   cache:
     key: ${CI_COMMIT_REF_SLUG}
-  paths:
-    - .npm/
   script: echo 'eslint happens here'
   artifacts:
     when: always
