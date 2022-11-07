@@ -1,0 +1,156 @@
+{
+  "root": true,
+  "ignorePatterns": [
+    "projects/**/*",
+    "src/environments/**/*",
+    "typings.d.ts",
+    "test.ts",
+    "polyfills.ts",
+    "main.ts"
+  ],
+  "overrides": [
+    {
+      "files": [
+        "*.ts"
+      ],
+      "parserOptions": {
+        "project": [
+          "tsconfig.json",
+          "e2e/tsconfig.json"
+        ],
+        "createDefaultProgram": true
+      },
+      "extends": [
+        "plugin:@angular-eslint/ng-cli-compat",
+        "plugin:@angular-eslint/ng-cli-compat--formatting-add-on",
+        "plugin:@angular-eslint/template/process-inline-templates",
+        "airbnb-typescript/base"
+      ],
+      "rules": {
+        "@angular-eslint/component-selector": [
+          "error",
+          {
+            "type": "element",
+            "prefix": "lib",
+            "style": "kebab-case"
+          }
+        ],
+        "@angular-eslint/directive-selector": [
+          "error",
+          {
+            "type": "attribute",
+            "prefix": "lib",
+            "style": "camelCase"
+          }
+        ],
+        "@typescript-eslint/consistent-type-definitions": "error",
+        "@typescript-eslint/default-param-last": "off",
+        "@typescript-eslint/dot-notation": "off",
+        "@typescript-eslint/explicit-member-accessibility": [
+          "off",
+          {
+            "accessibility": "explicit"
+          }
+        ],
+        "@typescript-eslint/lines-between-class-members": [
+          "error",
+          "always",
+          {
+            "exceptAfterSingleLine": true
+          }
+        ],
+        "@typescript-eslint/member-delimiter-style": [
+          "off",
+          {
+            "multiline": {
+              "delimiter": "none",
+              "requireLast": true
+            },
+            "singleline": {
+              "delimiter": "semi",
+              "requireLast": false
+            }
+          }
+        ],
+        "@typescript-eslint/member-ordering": [
+          2,
+          {
+            "default": [
+              // Index signature
+              "signature",
+              // Fields
+              "private-static-field",
+              "protected-static-field",
+              "public-static-field",
+              "private-decorated-field",
+              "protected-decorated-field",
+              "public-decorated-field",
+              "private-instance-field",
+              "protected-instance-field",
+              "public-instance-field",
+              "private-abstract-field",
+              "protected-abstract-field",
+              "public-abstract-field",
+              // Constructors
+              "private-constructor",
+              "protected-constructor",
+              "public-constructor",
+              // Methods
+              "private-static-method",
+              "protected-static-method",
+              "public-static-method",
+              "private-decorated-method",
+              "protected-decorated-method",
+              "public-decorated-method",
+              "private-instance-method",
+              "protected-instance-method",
+              "public-instance-method",
+              "private-abstract-method",
+              "protected-abstract-method",
+              "public-abstract-method"
+            ]
+          }
+        ],
+        "@typescript-eslint/no-useless-constructor": ["off"],
+        "@typescript-eslint/semi": [
+          "off",
+          null
+        ],
+        "brace-style": [
+          "error",
+          "1tbs"
+        ],
+        "class-methods-use-this": "off",
+        "id-blacklist": "off",
+        "id-match": "off",
+        "import/prefer-default-export": "off",
+        "linebreak-style": "off",
+        "max-len": [
+          2,
+          125,
+          4
+        ],
+        "no-param-reassign": "off",
+        "no-redeclare": "error",
+        "no-restricted-syntax": ["error", "ForInStatement", "LabeledStatement", "WithStatement"],
+        "no-underscore-dangle": "off",
+        "no-useless-constructor": "off",
+        "prefer-destructuring": ["error", {
+          "array": false,
+          "object": false
+        }],
+        "valid-typeof": "error",
+        "radix": "off"
+      }
+    },
+    {
+      "files": [
+        "*.html"
+      ],
+      "extends": [
+        "plugin:@angular-eslint/template/recommended"
+      ],
+      "rules": {}
+    }
+  ]
+}

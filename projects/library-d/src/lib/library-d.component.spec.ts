@@ -8,9 +8,9 @@ describe('LibraryDComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ LibraryDComponent ]
+      declarations: [ LibraryDComponent ],
     })
-    .compileComponents();
+      .compileComponents();
 
     fixture = TestBed.createComponent(LibraryDComponent);
     component = fixture.componentInstance;

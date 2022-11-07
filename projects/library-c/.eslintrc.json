@@ -1,0 +1,16 @@
+{
+    "extends": "../../.eslintrc.json",
+    "overrides": [
+        {
+            "files": [
+                "*.ts"
+            ],
+            "parserOptions": {
+                "project": [
+                    "projects/library-c/tsconfig.lib.json",
+                    "projects/library-c/tsconfig.spec.json"
+                ]
+            }
+        }
+    ]
+}
