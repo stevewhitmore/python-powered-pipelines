@@ -1,4 +1,4 @@
-image: alpine:latest
+image: stevewhitmore/nodejs-python
 
 cache:
   key: ${CI_COMMIT_REF_SLUG}
@@ -15,11 +15,6 @@ stages:
 pylint:
   stage: validation
   script:
-    - apk add --update --no-cache python3-dev gcc libc-dev libffi-dev
-    - ln -sf python3 /usr/bin/python
-    - ln -sf pip3 /usr/bin/pip
-    - python -m ensurepip
-    - python -m pip install --no-cache --upgrade pip setuptools pylint
     - python -m pylint --version
     - PYTHONPATH=${PYTHONPATH}:$(dirname %d) python -m pylint scripts/ci.py
 
