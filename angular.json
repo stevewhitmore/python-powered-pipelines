@@ -129,7 +129,7 @@
           "options": {
             "main": "projects/library-a/src/test.ts",
             "tsConfig": "projects/library-a/tsconfig.spec.json",
-            "karmaConfig": "projects/library-a/karma.conf.js"
+            "karmaConfig": "./karma.conf.js"
           }
         }
       }
@@ -160,7 +160,7 @@
           "options": {
             "main": "projects/library-b/src/test.ts",
             "tsConfig": "projects/library-b/tsconfig.spec.json",
-            "karmaConfig": "projects/library-b/karma.conf.js"
+            "karmaConfig": "./karma.conf.js"
           }
         }
       }
@@ -191,7 +191,7 @@
           "options": {
             "main": "projects/library-c/src/test.ts",
             "tsConfig": "projects/library-c/tsconfig.spec.json",
-            "karmaConfig": "projects/library-c/karma.conf.js"
+            "karmaConfig": "./karma.conf.js"
           }
         }
       }
@@ -222,7 +222,7 @@
           "options": {
             "main": "projects/library-d/src/test.ts",
             "tsConfig": "projects/library-d/tsconfig.spec.json",
-            "karmaConfig": "projects/library-d/karma.conf.js"
+            "karmaConfig": "./karma.conf.js"
           }
         }
       }

@@ -1,5 +1,4 @@
-default:
-  image: nikolaik/python-nodejs
+image: alpine:latest
 
 cache:
   key: ${CI_COMMIT_REF_SLUG}
@@ -28,16 +27,16 @@ eslint:
   stage: test
   cache:
     key: ${CI_COMMIT_REF_SLUG}
+  paths:
+    - .npm/
+  script: echo 'eslint happens here'
+  artifacts:
+    when: always
+    expire_in: 3 day
     paths:
-      - .npm/
-    script: echo 'eslint happens here'
-    artifacts:
-      when: always
-      expire_in: 3 day
-      paths:
-        - '*.log'
-    except:
-      - tags
+      - '*.log'
+  except:
+    - tags
 
 unit_tests:
   stage: test

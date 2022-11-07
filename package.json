@@ -5,9 +5,18 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
-    "watch": "ng build --watch --configuration development",
-    "test": "ng test",
-    "test:ci": "ng test --browsers=Chromium_Headless --watch=false"
+    "build-library-a": "ng build library-a --configuration production",
+    "build-library-b": "ng build library-b --configuration production",
+    "build-library-c": "ng build library-c --configuration production",
+    "build-library-d": "ng build library-d --configuration production",
+    "lint-library-a": "ng lint library-a",
+    "lint-library-b": "ng lint library-b",
+    "lint-library-c": "ng lint library-c",
+    "lint-library-d": "ng lint library-d",
+    "test-library-a": "ng test library-a --browsers=Chromium_Headless --watch=false",
+    "test-library-b": "ng test library-a --browsers=Chromium_Headless --watch=false",
+    "test-library-c": "ng test library-a --browsers=Chromium_Headless --watch=false",
+    "test-library-d": "ng test library-a --browsers=Chromium_Headless --watch=false"
   },
   "private": true,
   "dependencies": {
