@@ -24,21 +24,20 @@ eslint:
     key: ${CI_COMMIT_REF_SLUG}
   script:
     - python scripts/ci.py eslint
-  artifacts:
-    when: always
-    expire_in: 3 day
-    paths:
-      - '*.log'
   except:
     - tags
 
 unit_tests:
   stage: test
+  cache:
+    key: ${CI_COMMIT_REF_SLUG}
   script:
     - python scripts/ci.py unit_tests
 
 npm_publish_snapshot:
   stage: snapshot
+  cache:
+    key: ${CI_COMMIT_REF_SLUG}
   script:
     - echo "_auth=${NPM_TOKEN}" > .npmrc
     - python scripts/ci.py publish_snapshot
