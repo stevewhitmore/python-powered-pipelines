@@ -44,7 +44,7 @@ def append_snapshot_version(library):
 
 def npm_install():
     """Runs npm install"""
-    subprocess.check_call("npm --cache .npm --prefer-offline", shell=True)
+    subprocess.check_call("npm ci --cache .npm --prefer-offline", shell=True)
 
 
 def handle_snapshot_publication(library):
