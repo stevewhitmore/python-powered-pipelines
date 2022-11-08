@@ -6,10 +6,6 @@ import json
 import re
 from datetime import datetime
 from git import Repo
-from time import sleep
-
-COLOR_YELLOW = "\033[33m"
-COLOR_DEFAULT = "\033[0m"
 
 def get_diffs():
     """Gets the git diffs to determine which libraries to run operations on"""
@@ -48,23 +44,6 @@ def append_snapshot_version(library):
 def npm_command(command):
     """Runs npm commands depending on input"""
     diffs = get_diffs()
-
-    print(COLOR_YELLOW)
-
-    if command == "test":
-        print("Running unit tests for the following libraries:")
-
-    if command == "lint":
-        print("Running eslint for the following libraries:")
-
-    if command == "publish snapshots":
-        print("Publishing snapshots for the following libraries:")
-
-    for library in diffs:
-        print(library)
-
-    print(COLOR_DEFAULT)
-    sleep(1)
 
     for library in diffs:
         if command == "publish snapshots":
