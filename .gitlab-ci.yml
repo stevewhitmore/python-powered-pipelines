@@ -46,4 +46,5 @@ npm_publish_snapshot:
     - echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" > .npmrc
     - python scripts/ci.py publish_snapshots
   except:
+    - main
     - tags
