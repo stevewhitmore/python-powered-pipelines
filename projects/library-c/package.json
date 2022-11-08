@@ -1,6 +1,6 @@
 {
   "name": "@stevewhitmore/library-c",
-  "version": "0.0.1-SNAPSHOT-20221107-170826",
+  "version": "0.0.1",
   "peerDependencies": {
     "@angular/common": "^14.2.0",
     "@angular/core": "^14.2.0"
