@@ -49,13 +49,15 @@ def npm_command(command):
     diffs = get_diffs()
 
     print(COLOR_YELLOW)
-    match command:
-        case "test":
-            print("Running unit tests for the following libraries:")
-        case "lint":
-            print("Running eslint for the following libraries:")
-        case "publish snapshots":
-            print("Publishing snapshots for the following libraries:")
+
+    if command == "test":
+        print("Running unit tests for the following libraries:")
+
+    if command == "lint":
+        print("Running eslint for the following libraries:")
+
+    if command == "publish snapshots":
+        print("Publishing snapshots for the following libraries:")
 
     for library in diffs:
         print(library)
