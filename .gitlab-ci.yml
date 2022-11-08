@@ -29,6 +29,7 @@ eslint:
   cache:
     key: ${CI_COMMIT_REF_SLUG}
   script:
+    - ls -la
     - python scripts/ci.py eslint
   except:
     - tags
