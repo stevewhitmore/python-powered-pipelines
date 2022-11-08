@@ -6,6 +6,7 @@ import json
 import re
 from datetime import datetime
 from git import Repo
+from time import sleep
 
 COLOR_YELLOW = "\033[33m"
 COLOR_DEFAULT = "\033[0m"
@@ -63,6 +64,7 @@ def npm_command(command):
         print(library)
 
     print(COLOR_DEFAULT)
+    sleep(1)
 
     for library in diffs:
         if command == "publish snapshots":

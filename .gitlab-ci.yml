@@ -21,14 +21,14 @@ before_script:
 #     - python -m pylint --version
 #     - PYTHONPATH=${PYTHONPATH}:$(dirname %d) python -m pylint scripts/ci.py
 
-# eslint:
-#   stage: test
-#   cache:
-#     key: ${CI_COMMIT_REF_SLUG}
-#   script:
-#     - python scripts/ci.py eslint
-#   except:
-#     - tags
+eslint:
+  stage: test
+  cache:
+    key: ${CI_COMMIT_REF_SLUG}
+  script:
+    - python scripts/ci.py eslint
+  except:
+    - tags
 
 # unit_tests:
 #   stage: test
@@ -36,11 +36,15 @@ before_script:
 #     key: ${CI_COMMIT_REF_SLUG}
 #   script:
 #     - python scripts/ci.py unit_tests
+#   except:
+#     - tags
 
-npm_publish_snapshot:
-  stage: snapshot
-  cache:
-    key: ${CI_COMMIT_REF_SLUG}
-  script:
-    - echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" > .npmrc
-    - python scripts/ci.py publish_snapshots
+# npm_publish_snapshot:
+#   stage: snapshot
+#   cache:
+#     key: ${CI_COMMIT_REF_SLUG}
+#   script:
+#     - echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" > .npmrc
+#     - python scripts/ci.py publish_snapshots
+#   except:
+#     - tags
