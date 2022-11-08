@@ -1,6 +1,6 @@
 FROM alpine:latest
 
-RUN apk add --no-cache --update python3-dev gcc libc-dev libffi-dev && \
+RUN apk add --no-cache --update python3-dev gcc libc-dev libffi-dev git && \
     ln -sf /usr/share/zoneinfo/America/Chicago /etc/localtime && \
     ln -sf python3 /usr/bin/python && \
     ln -sf pip3 /usr/bin/pip
