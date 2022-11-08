@@ -41,5 +41,4 @@ npm_publish_snapshot:
   stage: snapshot
   script:
     - echo "_auth=${NPM_TOKEN}" > .npmrc
-    - [ -z "$NPM_TOKEN" ] && echo "You must provide an auth token for environment variable \"NPM_TOKEN\". Exiting..." && exit 1
     - python scripts/ci.py publish_snapshot
