@@ -26,7 +26,6 @@ eslint:
   cache:
     key: ${CI_COMMIT_REF_SLUG}
   script:
-    - ls -la
     - python scripts/ci.py eslint
   except:
     - tags
@@ -44,4 +43,4 @@ npm_publish_snapshot:
     key: ${CI_COMMIT_REF_SLUG}
   script:
     - echo "_auth=${NPM_TOKEN}" > .npmrc
-    - python scripts/ci.py publish_snapshot
+    - python scripts/ci.py publish_snapshots
