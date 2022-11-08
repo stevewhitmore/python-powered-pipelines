@@ -14,5 +14,4 @@ export class LibraryDComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
 }
