@@ -8,6 +8,7 @@ cache:
 
 stages:
   - validation
+  - install
   - test
   - snapshot
   - release
@@ -17,6 +18,11 @@ pylint:
   script:
     - python -m pylint --version
     - PYTHONPATH=${PYTHONPATH}:$(dirname %d) python -m pylint scripts/ci.py
+
+npm_install:
+  stage: install
+  script:
+    - npm ci --cache .npm --prefer-offline
 
 eslint:
   stage: test
