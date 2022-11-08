@@ -23,8 +23,9 @@ def get_diffs():
 
     return set(updated_libraries)
 
+
 def append_snapshot_version(library):
-    """Appends "-SNAPSHOT-" plus timestamp down to the second to library version"""
+    """Appends "-SNAPSHOT-" plus timestamp (down to the second) to library version"""
     package_json_path = f"./projects/{library}/package.json"
     with open(package_json_path, "r", encoding="UTF-8") as package_json:
         contents = json.load(package_json)
@@ -41,15 +42,26 @@ def append_snapshot_version(library):
         package_json.write(json.dumps(contents, indent=2))
 
 
+def npm_install():
+    """Runs npm install"""
+    subprocess.check_call("npm ci --cache .npm --prefer-offline", shell=True)
+
+
+def handle_snapshot_publication(library):
+    """Updates version with snapshot, builds, and publishes snapshot"""
+    append_snapshot_version(library)
+    subprocess.check_call(f"npm run build-{library}", shell=True)
+    subprocess.check_call(f"npm publish --access=public ./dist/{library}", shell=True)
+
+
 def npm_command(command):
     """Runs npm commands depending on input"""
+    npm_install()
     diffs = get_diffs()
 
     for library in diffs:
         if command == "publish snapshots":
-            append_snapshot_version(library)
-            subprocess.check_call(f"npm run build-{library}", shell=True)
-            subprocess.check_call(f"npm publish --access=public ./dist/{library}", shell=True)
+            handle_snapshot_publication(library)
         else:
             subprocess.check_call(f"npm run {command}-{library}", shell=True)
 
