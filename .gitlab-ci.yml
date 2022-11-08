@@ -42,6 +42,5 @@ npm_publish_snapshot:
   cache:
     key: ${CI_COMMIT_REF_SLUG}
   script:
-    - echo "_auth=${NPM_TOKEN}" > .npmrc
-    - cat .npmrc
+    - echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" > .npmrc
     - python scripts/ci.py publish_snapshots
