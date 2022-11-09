@@ -3,7 +3,8 @@ on: push
 
 jobs:
   test:
-    runs-on: stevewhitmore/nodejs-python
+    runs-on: ubuntu-latest
+    container: stevewhitmore/nodejs-python
 
     steps:
       - name: Cache node modules
