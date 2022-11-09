@@ -9,6 +9,11 @@ jobs:
     steps:
       - name: Cache node modules
         id: cache-nodemodules
+        uses: actions/checkout@v3
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16'
+          cache: 'npm'
         uses: actions/cache@v2
         env:
           cache-name: cache-node-modules
