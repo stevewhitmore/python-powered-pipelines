@@ -4,7 +4,6 @@ stages:
   - validation
   - test
   - snapshot
-  - release
 
 cache:
   key: ${CI_COMMIT_REF_SLUG}
@@ -21,7 +20,7 @@ pylint:
     - tags
 
 eslint:
-  stage: test
+  stage: validation
   cache:
     key: ${CI_COMMIT_REF_SLUG}
   script:
