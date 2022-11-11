@@ -1,0 +1,42 @@
+name: CI
+on: push
+
+jobs:
+  CI:
+    runs-on: ubuntu-latest
+    container: stevewhitmore/nodejs-python
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Cache node modules
+        id: cache-npm
+        uses: actions/cache@v3
+        env:
+          cache-name: cache-node-modules
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-build-${{ env.cache-name }}-
+            ${{ runner.os }}-build-
+            ${{ runner.os }}-
+
+      - name: Allow me to run my script
+        run: git config --global safe.directory '*'
+
+      - name: pylint
+        run: |
+          python -m pylint --version
+          PYTHONPATH=${PYTHONPATH}:$(dirname %d) python -m pylint scripts/ci.py
+
+      - name: eslint
+        run: python scripts/ci.py eslint
+
+      - name: Unit Tests
+        run: python scripts/ci.py unit_tests
+
+      - name: Publish Snapshots
+        run: |
+          echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" > .npmrc
+          python scripts/ci.py publish_snapshots
