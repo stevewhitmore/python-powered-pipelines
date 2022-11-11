@@ -2,7 +2,7 @@ name: CI
 on: push
 
 jobs:
-  test:
+  CI:
     runs-on: ubuntu-latest
     container: stevewhitmore/nodejs-python
 
@@ -23,10 +23,11 @@ jobs:
             ${{ runner.os }}-build-
             ${{ runner.os }}-
 
+      - name: Allow me to run my script
+        run: git config --global safe.directory '*'
+
       - name: Lint
-        run: |
-          git config --global safe.directory '*'
-          python scripts/ci.py eslint
+        run: python scripts/ci.py eslint
 
       - name: Unit Tests
         run: python scripts/ci.py unit_tests
