@@ -8,6 +8,7 @@ jobs:
 
     steps:
       - uses: actions/checkout@v3
+
       - name: Cache node modules
         id: cache-nodemodules
         uses: actions/cache@v2
@@ -23,7 +24,9 @@ jobs:
             ${{ runner.os }}-
 
       - name: Lint
-        run: python scripts/ci.py eslint
+        run: |
+          git config --global safe.directory '*'
+          python scripts/ci.py eslint
 
       - name: Unit Tests
         run: python scripts/ci.py test
