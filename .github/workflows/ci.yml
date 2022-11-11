@@ -9,7 +9,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - name: 
+      - name: Cache node modules
         id: cache-npm
         uses: actions/cache@v3
         env:
@@ -22,11 +22,6 @@ jobs:
             ${{ runner.os }}-build-
             ${{ runner.os }}-
 
-      - if: ${{ steps.cache-npm.outputs.cache-hit != 'true' }}
-        name: List the state of node modules
-        continue-on-error: true
-        run: npm list
-
       - name: Allow me to run my script
         run: git config --global safe.directory '*'
 
@@ -37,6 +32,10 @@ jobs:
         run: python scripts/ci.py unit_tests
 
       - name: Publish Snapshots
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16
+          registry-url: 'https://registry.npmjs.org'
         run: python scripts/ci.py publish_snapshots
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
