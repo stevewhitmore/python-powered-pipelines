@@ -9,19 +9,23 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - name: Cache node modules
-        id: cache-nodemodules
-        uses: actions/cache@v2
+      - name: 
+        id: cache-npm
+        uses: actions/cache@v3
         env:
           cache-name: cache-node-modules
         with:
-          # caching node_modules
-          path: node_modules
+          path: ~/.npm
           key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
           restore-keys: |
             ${{ runner.os }}-build-${{ env.cache-name }}-
             ${{ runner.os }}-build-
             ${{ runner.os }}-
+
+      - if: ${{ steps.cache-npm.outputs.cache-hit != 'true' }}
+        name: List the state of node modules
+        continue-on-error: true
+        run: npm list
 
       - name: Allow me to run my script
         run: git config --global safe.directory '*'
@@ -33,6 +37,6 @@ jobs:
         run: python scripts/ci.py unit_tests
 
       - name: Publish Snapshots
-        run: |
-          echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" > .npmrc
-          python scripts/ci.py publish_snapshots
+        run: python scripts/ci.py publish_snapshots
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
