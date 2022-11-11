@@ -25,7 +25,12 @@ jobs:
       - name: Allow me to run my script
         run: git config --global safe.directory '*'
 
-      - name: Lint
+      - name: pylint
+        run: |
+          python -m pylint --version
+          PYTHONPATH=${PYTHONPATH}:$(dirname %d) python -m pylint scripts/ci.py
+
+      - name: eslint
         run: python scripts/ci.py eslint
 
       - name: Unit Tests
